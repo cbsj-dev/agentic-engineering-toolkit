@@ -1,19 +1,22 @@
 ---
 name: git-publish
-description: Creates a new branch, stages reviewed changes, commits an approved description, and safely pushes it.
+description: Creates a new branch or safely publishes an eligible current branch, stages reviewed changes, commits an approved description, and pushes it.
 ---
 
 # Git Publish
 
-1. Collect a non-empty branch name, explicit repository-relative paths or
-   `files: all`, a commit description or `message: auto`, and the destination
-   remote. Confirm the current branch and remote before making changes.
-2. Validate the requested branch name. Reject a default or protected branch and
-   stop if the branch already exists locally or on the destination remote.
+1. Collect `branch: current` or a non-empty new branch name, explicit
+   repository-relative paths or `files: all`, a commit description or
+   `message: auto`, and an optional destination remote that defaults to
+   `origin`. Confirm the current branch and remote before making changes.
+2. For `branch: current`, confirm the current branch is neither the default nor
+   protected branch. For a new branch, reject a default or protected name and
+   stop if it already exists locally or on the destination remote.
 3. Inspect `git status --short --branch` and the working diff. If the index
    already contains changes, stop and ask the user how to handle them because a
-   commit includes the entire index. Create the requested branch from the
-   current branch with `git switch -c <branch>`.
+   commit includes the entire index. For a new branch, create it from the
+   current branch with `git switch -c <branch>`; otherwise remain on the
+   confirmed current branch.
 4. Verify that every requested path is an intended working-tree change. When
    `files: all` is requested, list every candidate path and require confirmation
    before staging. Stage only the reviewed paths with `git add -- <paths>`;
@@ -26,6 +29,6 @@ description: Creates a new branch, stages reviewed changes, commits an approved 
    the reviewed diff and require the user's approval before committing.
 7. Commit the staged changes with the approved description. Do not amend an
    existing commit or bypass hooks.
-8. Push the new branch to the confirmed remote with upstream tracking. Do not
-   force-push. If branch creation, commit, or push fails, report the exact
+8. Push the requested branch to the confirmed remote with upstream tracking.
+   Do not force-push. If branch creation, commit, or push fails, report the exact
    repository state and do not use destructive recovery commands.
