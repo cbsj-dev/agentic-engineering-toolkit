@@ -1,0 +1,20 @@
+{
+  "platform": "opencode",
+  "assetRoot": ".opencode",
+  "mappings": [
+    { "kind": "agent", "name": "software-architect", "canonical": "agents/software-architect/AGENT.md", "adapter": ".opencode/agents/software-architect.md", "dependencies": ["policies/architecture/architecture.md", "policies/coding/engineering.md"] },
+    { "kind": "agent", "name": "product-owner", "canonical": "agents/product-owner/AGENT.md", "adapter": ".opencode/agents/product-owner.md", "dependencies": ["policies/architecture/architecture.md"] },
+    { "kind": "agent", "name": "code-reviewer", "canonical": "agents/code-reviewer/AGENT.md", "adapter": ".opencode/agents/code-reviewer.md", "dependencies": ["policies/coding/code-review.md", "policies/coding/engineering.md"] },
+    { "kind": "agent", "name": "security-reviewer", "canonical": "agents/security-reviewer/AGENT.md", "adapter": ".opencode/agents/security-reviewer.md", "dependencies": ["policies/security/security-review.md", "policies/coding/code-review.md"] },
+    { "kind": "agent", "name": "legacy-modernization", "canonical": "agents/legacy-modernization/AGENT.md", "adapter": ".opencode/agents/legacy-modernization.md", "dependencies": ["policies/architecture/architecture.md", "policies/coding/engineering.md"] },
+    { "kind": "skill", "name": "requirements-analysis", "canonical": "skills/requirements-analysis/SKILL.md", "adapter": ".opencode/skills/requirements-analysis/SKILL.md", "dependencies": [] },
+    { "kind": "skill", "name": "architecture-analysis", "canonical": "skills/architecture-analysis/SKILL.md", "adapter": ".opencode/skills/architecture-analysis/SKILL.md", "dependencies": ["policies/architecture/architecture.md"] },
+    { "kind": "skill", "name": "code-review", "canonical": "skills/code-review/SKILL.md", "adapter": ".opencode/skills/code-review/SKILL.md", "dependencies": ["policies/coding/code-review.md"] },
+    { "kind": "skill", "name": "refactoring", "canonical": "skills/refactoring/SKILL.md", "adapter": ".opencode/skills/refactoring/SKILL.md", "dependencies": [] },
+    { "kind": "skill", "name": "testing", "canonical": "skills/testing/SKILL.md", "adapter": ".opencode/skills/testing/SKILL.md", "dependencies": [] },
+    { "kind": "workflow", "name": "feature-development", "canonical": "workflows/feature-development/WORKFLOW.md", "adapter": ".opencode/commands/feature-development.md", "dependencies": [] },
+    { "kind": "workflow", "name": "bug-fixing", "canonical": "workflows/bug-fixing/WORKFLOW.md", "adapter": ".opencode/commands/bug-fixing.md", "dependencies": [] },
+    { "kind": "workflow", "name": "legacy-analysis", "canonical": "workflows/legacy-analysis/WORKFLOW.md", "adapter": ".opencode/commands/legacy-analysis.md", "dependencies": [] },
+    { "kind": "workflow", "name": "modernization", "canonical": "workflows/modernization/WORKFLOW.md", "adapter": ".opencode/commands/modernization.md", "dependencies": [] }
+  ]
+}

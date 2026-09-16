@@ -1,0 +1,12 @@
+{
+  "name": "agentic-engineering-toolkit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Reusable platform-neutral assets for agentic software engineering.",
+  "scripts": {
+    "test": "node harness/validate-assets.mjs && node harness/test-install-opencode-adapter.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
