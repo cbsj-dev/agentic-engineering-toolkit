@@ -50,6 +50,6 @@ under `.opencode/agents/` and are delegable subagents.
 | `bug-fixing` | Command | Diagnoses and fixes a defect using the canonical bug-fixing workflow. | Run `/bug-fixing correct duplicate invoices`. |
 | `legacy-analysis` | Command | Analyzes legacy behavior and risks before a change. | Run `/legacy-analysis assess the billing importer`. |
 | `modernization` | Command | Plans or implements an incremental legacy modernization step. | Run `/modernization migrate the cache client`. |
-| `git-publish` | Command | Stages selected paths, commits a supplied description, and pushes the current branch safely. | Run `/git-publish files: docs/a.md; message: docs: clarify setup; remote: origin`. |
+| `git-publish` | Command | Creates a new branch, stages reviewed changes, commits an approved description, and safely pushes it. | Run `/git-publish branch: feature/docs; files: docs/a.md; message: docs: clarify setup; remote: origin`. |
 | No module currently defined | Plugin | Reserves `.opencode/plugins/` for focused project-owned plugin modules. | Add a `.ts` or `.js` module to `.opencode/plugins/` when an extension is necessary. |
 | `opencode.json` | Configuration | Defines project-level configuration and currently loads `AGENTS.md` instructions. | Add a project-specific model, permission, or inline agent definition. |
