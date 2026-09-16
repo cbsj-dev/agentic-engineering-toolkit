@@ -18,6 +18,7 @@ async function assertSymlink(path) {
 
 const fullTarget = await mkdtemp(join(tmpdir(), "agentic-toolkit-full-"));
 const selectiveTarget = await mkdtemp(join(tmpdir(), "agentic-toolkit-selective-"));
+const workflowTarget = await mkdtemp(join(tmpdir(), "agentic-toolkit-workflow-"));
 
 try {
   const list = run("--list");
@@ -25,6 +26,7 @@ try {
   assert.match(list.stdout, /^agent:code-reviewer$/m);
   assert.match(list.stdout, /^skill:code-review$/m);
   assert.match(list.stdout, /^workflow:bug-fixing$/m);
+  assert.match(list.stdout, /^workflow:git-publish$/m);
 
   const dryRun = run("--dry-run", selectiveTarget, "agent:code-reviewer");
   assert.equal(dryRun.status, 0, dryRun.stderr);
@@ -41,6 +43,13 @@ try {
   const conflict = run(selectiveTarget, "agent:code-reviewer");
   assert.notEqual(conflict.status, 0, "existing assets must not be overwritten");
 
+  const workflow = run(workflowTarget, "workflow:git-publish");
+  assert.equal(workflow.status, 0, workflow.stderr);
+  await assertSymlink(join(workflowTarget, ".opencode/commands/git-publish.md"));
+  await assertSymlink(join(workflowTarget, "workflows/git-publish"));
+  await assertSymlink(join(workflowTarget, "policies/coding/engineering.md"));
+  await assertSymlink(join(workflowTarget, "policies/security/security-review.md"));
+
   const full = run(fullTarget);
   assert.equal(full.status, 0, full.stderr);
   for (const path of [".opencode", "agents", "skills", "workflows", "policies"]) {
@@ -49,6 +58,7 @@ try {
 } finally {
   await rm(fullTarget, { recursive: true, force: true });
   await rm(selectiveTarget, { recursive: true, force: true });
+  await rm(workflowTarget, { recursive: true, force: true });
 }
 
 console.log("OpenCode adapter installer is valid.");

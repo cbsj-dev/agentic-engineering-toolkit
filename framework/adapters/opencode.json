@@ -15,6 +15,7 @@
     { "kind": "workflow", "name": "feature-development", "canonical": "workflows/feature-development/WORKFLOW.md", "adapter": ".opencode/commands/feature-development.md", "dependencies": [] },
     { "kind": "workflow", "name": "bug-fixing", "canonical": "workflows/bug-fixing/WORKFLOW.md", "adapter": ".opencode/commands/bug-fixing.md", "dependencies": [] },
     { "kind": "workflow", "name": "legacy-analysis", "canonical": "workflows/legacy-analysis/WORKFLOW.md", "adapter": ".opencode/commands/legacy-analysis.md", "dependencies": [] },
-    { "kind": "workflow", "name": "modernization", "canonical": "workflows/modernization/WORKFLOW.md", "adapter": ".opencode/commands/modernization.md", "dependencies": [] }
+    { "kind": "workflow", "name": "modernization", "canonical": "workflows/modernization/WORKFLOW.md", "adapter": ".opencode/commands/modernization.md", "dependencies": [] },
+    { "kind": "workflow", "name": "git-publish", "canonical": "workflows/git-publish/WORKFLOW.md", "adapter": ".opencode/commands/git-publish.md", "dependencies": ["policies/coding/engineering.md", "policies/security/security-review.md"] }
   ]
 }

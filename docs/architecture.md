@@ -26,7 +26,8 @@ agentic-engineering-toolkit/
 │   ├── feature-development/WORKFLOW.md
 │   ├── bug-fixing/WORKFLOW.md
 │   ├── legacy-analysis/WORKFLOW.md
-│   └── modernization/WORKFLOW.md
+│   ├── modernization/WORKFLOW.md
+│   └── git-publish/WORKFLOW.md
 ├── policies/
 │   ├── architecture/
 │   ├── coding/
